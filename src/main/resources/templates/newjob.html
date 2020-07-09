@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>view free Drivers</title>
+
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Driver List</h2>
+
+
+
+<table >
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>mobileNumber</th>
+
+        <th>CarType</th>
+
+        <th>newOrder</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${empty}">
+        <td colspan="2"> No driver Available </td>
+    </tr>
+    <tr th:each="driver : ${drivers}">
+        <td><span th:text="${driver.name}" th:field="*{name}" > name </span></td>
+        <td><span th:text="${driver.mobileNumber}"> mobileNumber </span></td>
+
+        <td><span th:text="${driver.carType}"> carType </span></td>
+
+        <td>
+            <form th:action="@{/newJob/register}" method="post">
+                <input type="hidden" name="id" th:value="${driver.id}" />
+                <input type="submit" value="شروع فعالیت" class="btn btn-danger" />
+            </form>
+        </td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+</body>
+</html>

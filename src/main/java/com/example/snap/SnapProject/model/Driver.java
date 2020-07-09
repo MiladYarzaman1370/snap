@@ -1,7 +1,5 @@
 package com.example.snap.SnapProject.model;
 
-import com.example.snap.SnapProject.model.enum_.CarType;
-
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
@@ -12,18 +10,23 @@ public class Driver {
     private ObjectId id;
     private String name;
     private  String mobileNumber;
-    private CarType carType;
-    private boolean statusIsFree;
+    private double wallet;
+
+
+    // private CarType carType;
+    private String carType;
+    private boolean busy;
 
     public Driver() {
     }
 
-    public Driver(ObjectId id, String name, String mobileNumber, boolean statusIsFree, CarType carType) {
+    public Driver(ObjectId id, String name, String mobileNumber,double wallet, boolean busy, String carType) {
         this.id = id;
         this.name = name;
         this.mobileNumber = mobileNumber;
-        this.statusIsFree = statusIsFree;
+        this.busy = busy;
         this.carType=carType;
+        this.wallet=wallet;
 
     }
 
@@ -51,19 +54,27 @@ public class Driver {
         this.mobileNumber = mobileNumber;
     }
 
-    public CarType getCarType() {
+    public String getCarType() {
         return carType;
     }
 
-    public void setCarType(CarType carType) {
+    public void setCarType(String carType) {
         this.carType = carType;
     }
 
-    public boolean isStatusIsFree() {
-        return statusIsFree;
+    public boolean isBusy() {
+        return busy;
     }
 
-    public void setStatusIsFree(boolean statusIsFree) {
-        this.statusIsFree = statusIsFree;
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
+
+    public double getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.snap.SnapProject.persistance.MongoDb;
+package com.example.snap.SnapProject.persistance.mainMongoDb;
 
 import com.example.snap.SnapProject.model.Driver;
 import com.mongodb.MongoClientSettings;
